@@ -1,0 +1,21 @@
+<div class="card">
+<h1>To-Do List</h1>
+<div *ngIf="displayMessage()">
+<p *ngFor="let t of allList"> 
+    {{ t.task }} <button *ngIf="t.completed == false" (click)="completedTask(t)">INCOMPLETE</button>
+    <button *ngIf="t.completed == true" (click)="completedTask(t)">COMPLETED</button> &nbsp; &nbsp; &nbsp; &nbsp; 
+    <button (click)="removeTask(t)">x</button>
+</p>
+
+<br>
+<br>
+</div>
+
+<h1 *ngIf="!displayMessage()">Congratulations! You've completed all tasks!</h1>
+
+<h2>Add new task</h2>
+<p>Task:</p>
+<input type="text" [(ngModel)]="newTask.task" />
+<button (click)="addTask()">Add task</button>
+
+</div>
